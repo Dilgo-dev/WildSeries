@@ -1,5 +1,7 @@
 // Some data to make the trick
 
+const tables = require("../../database/tables");
+
 const categories = [
   {
     id: 1,
@@ -11,7 +13,7 @@ const categories = [
   },
 ];
 
-const getAllCategories = (_, res) => res.status(200).json(categories);
+const getAllCategories = async (_, res) => res.status(200).json(await tables.category.readAll());
 
 const getOneCategory = (req, res) => {
   const { id } = req.params;

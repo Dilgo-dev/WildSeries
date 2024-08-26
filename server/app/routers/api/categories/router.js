@@ -1,13 +1,22 @@
 const { Router } = require("express");
 const {
-  getAllCategories,
-  getOneCategory,
+  browse,
+  read,
+  edit,
+  add,
+  destroy
 } = require("../../../controllers/categoryActions");
 
 const router = Router();
 
-router.get("/", getAllCategories);
+router.get("/", browse);
 
-router.get("/:id", getOneCategory);
+router.post("/", add);
+
+router.get("/:id", read);
+
+router.put("/:id", edit);
+
+router.delete("/:id", destroy);
 
 module.exports = router;
